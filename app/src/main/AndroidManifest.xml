@@ -11,9 +11,9 @@
 
     <application
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/barcode_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.BarcodeReader">
 
@@ -22,10 +22,10 @@
             android:value="barcode" />
 
         <activity
-            android:name=".main.MainActivity"
+            android:name="com.assa.barcodereader.activity.main.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".landing.LandingActivity"
+            android:name="com.assa.barcodereader.activity.landing.LandingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,11 +1,11 @@
-package com.assa.barcodereader.landing
+package com.assa.barcodereader.activity.landing
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.assa.barcodereader.R
-import com.assa.barcodereader.main.MainActivity
+import com.assa.barcodereader.activity.main.MainActivity
 
 class LandingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
