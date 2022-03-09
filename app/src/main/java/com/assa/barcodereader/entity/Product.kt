@@ -13,5 +13,6 @@ data class Product(
     @ColumnInfo(name = "box_number") var boxNumber: String,
     @ColumnInfo(name = "amount") var amount: String,
     @ColumnInfo(name = "best_before") var bestBefore: String,
-    @ColumnInfo(name = "weight") var weight: Double
+    @ColumnInfo(name = "weight") var weight: Double,
+    @ColumnInfo(name = "transaction_number") var transactionNumber: Double
 )

@@ -3,11 +3,11 @@ package com.assa.barcodereader.task
 import android.content.Context
 import com.assa.barcodereader.database.ProductDatabase
 import com.assa.barcodereader.entity.Product
-import com.github.doyaaaaaken.kotlincsv.client.CsvReader
-import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
+import org.json.JSONArray
+import org.json.JSONObject
 import java.io.BufferedReader
-import java.io.File
 import java.io.InputStreamReader
+import java.net.URL
 
 import java.util.concurrent.Callable
 
@@ -16,21 +16,22 @@ class DatabasePrepopulationTask(
 ): Callable<Unit> {
 
     override fun call() {
-        csvReader().open(applicationContext.assets.open("assa_product.csv"))  {
-            readAllAsSequence().forEach { row ->
-                //Do something with the data
-                val product = Product(
-                    row[0], //barcode
-                    row[4],//amount
-                    row[2],//prep date
-                    row[3],//boxnum
-                    row[1],//desc
-                    row[5],//bestby
-                    row[6].toDouble() //weight
-                )
-                ProductDatabase.getDatabase(applicationContext).productDao().insert(product)
-            }
+        val urlConnection = URL("https://assa-scanner-backend.herokuapp.com/api/getProducts").openConnection()
+        val jsonArray = JSONArray(BufferedReader(InputStreamReader(urlConnection.getInputStream())).readLine())
+        val products = ArrayList<Product>()
+        (0 until jsonArray.length()).forEach{
+            val item = (jsonArray.get(it) as JSONObject)
+            products.add(Product(
+                item.getString("barcodeNumber"),
+                item.getString("description"),
+                item.getString("productionDate"),
+                item.getString("boxNumber"),
+                item.getString("amount"),
+                item.getString("bestBefore"),
+                item.getDouble("weight"),
+                item.getDouble("transactionNumber"),
+            ))
         }
+        ProductDatabase.getDatabase(applicationContext).productDao().batchInsert(products)
     }
-
 }

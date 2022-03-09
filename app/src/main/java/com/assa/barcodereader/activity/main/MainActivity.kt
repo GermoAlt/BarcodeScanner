@@ -2,14 +2,12 @@ package com.assa.barcodereader.activity.main
 
 import android.Manifest
 import android.content.pm.PackageManager
-import android.content.res.Resources
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.assa.barcodereader.database.ProductDatabase
 import com.assa.barcodereader.R
 import com.assa.barcodereader.entity.Product
 import com.assa.barcodereader.activity.main.weight_list.ProductAdapter
@@ -27,16 +25,10 @@ import java.util.concurrent.Executors
 
 private const val RC_PERMISSION = 10
 
-
 class MainActivity : AppCompatActivity() {
 
     private val mCodeScanner: CodeScanner? = null
     private var mPermissionGranted = false
-
-
-
-
-
     private lateinit var codeScanner: CodeScanner
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,7 +52,6 @@ class MainActivity : AppCompatActivity() {
         // Callbacks
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
-
                 if (!it.text.equals(lastScanned)) {
                     val product = executor.submit(ProductTask(it.text, applicationContext)).get()
                     if (product != null) {
@@ -72,7 +63,6 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-
         }
 
         codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
@@ -105,7 +95,6 @@ class MainActivity : AppCompatActivity() {
                 .toBigDecimal()
                 .plus(product.weight.toBigDecimal()))
             .toString())
-
     }
 
     override fun onRequestPermissionsResult(

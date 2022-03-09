@@ -13,4 +13,7 @@ interface ProductDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(product: Product)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun batchInsert(products: List<Product>)
 }
