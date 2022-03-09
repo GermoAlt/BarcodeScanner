@@ -1,13 +1,14 @@
 package com.assa.barcodereader.database
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import com.assa.barcodereader.dao.ProductDao
 import com.assa.barcodereader.entity.Product
+import java.math.BigDecimal
+import java.util.*
 
-@Database(entities = [Product::class], version = 1)
+@Database(entities = [Product::class], version = 4)
+@TypeConverters(Converters::class)
 abstract class ProductDatabase : RoomDatabase(){
     abstract fun productDao(): ProductDao
 
@@ -21,11 +22,33 @@ abstract class ProductDatabase : RoomDatabase(){
                         Room.databaseBuilder(
                             context,
                             ProductDatabase::class.java,
-                            "product_database_3")
+                            "products_database")
                             .build()
                 }
             }
             return INSTANCE!!
         }
+    }
+}
+
+class Converters {
+    @TypeConverter
+    fun fromTimestamp(value: Long?): Date? {
+        return value?.let { Date(it) }
+    }
+
+    @TypeConverter
+    fun dateToTimestamp(date: Date?): Long? {
+        return date?.time?.toLong()
+    }
+
+    @TypeConverter
+    fun fromBigDecimalToDouble(value: BigDecimal): Double{
+        return value.toDouble()
+    }
+
+    @TypeConverter
+    fun fromDoubleToBigDecimal(value: Double): BigDecimal{
+        return BigDecimal(value)
     }
 }

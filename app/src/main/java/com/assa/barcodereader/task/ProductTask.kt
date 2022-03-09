@@ -12,7 +12,6 @@ class ProductTask(
 ): Callable<Product?> {
 
     override fun call(): Product? {
-        val productDao = ProductDatabase.getDatabase(applicationContext).productDao()
-        return productDao.getById(barcode)
+        return ProductDatabase.getDatabase(applicationContext).productDao().getById(barcode)
     }
 }

@@ -19,6 +19,7 @@ import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
+import java.math.RoundingMode
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -55,6 +56,7 @@ class MainActivity : AppCompatActivity() {
                 if (!it.text.equals(lastScanned)) {
                     val product = executor.submit(ProductTask(it.text, applicationContext)).get()
                     if (product != null) {
+                        product.weight = product.weight.setScale(2, RoundingMode.DOWN)
                         updateValues(product)
                         products.add(0, product)
                         productAdapter.notifyItemInserted(0)
@@ -93,7 +95,7 @@ class MainActivity : AppCompatActivity() {
             (weightTotal.text.toString()
             .substring(0, weightTotal.text.length - 3)
                 .toBigDecimal()
-                .plus(product.weight.toBigDecimal()))
+                .plus(product.weight))
             .toString())
     }
 

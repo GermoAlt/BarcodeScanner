@@ -7,6 +7,8 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import java.math.BigDecimal
+import java.math.RoundingMode
 import java.net.URL
 
 import java.util.concurrent.Callable
@@ -28,7 +30,7 @@ class DatabasePrepopulationTask(
                 item.getString("boxNumber"),
                 item.getString("amount"),
                 item.getString("bestBefore"),
-                item.getDouble("weight"),
+                BigDecimal(item.getDouble("weight")).setScale(2, RoundingMode.DOWN),
                 item.getDouble("transactionNumber"),
             ))
         }
