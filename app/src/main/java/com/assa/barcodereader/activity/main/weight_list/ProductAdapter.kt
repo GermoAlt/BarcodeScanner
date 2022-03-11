@@ -11,9 +11,9 @@ import com.assa.barcodereader.entity.Product
 
 class ProductAdapter(private val context: Context, val weights: ArrayList<Product>) : RecyclerView.Adapter<ProductAdapter.WeightViewHolder>() {
     class WeightViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val barcode: TextView = itemView.findViewById(R.id.product_barcode)
+        val barcode: TextView = itemView.findViewById(R.id.product_left_information)
         val description: TextView = itemView.findViewById(R.id.product_name)
-        val weight: TextView = itemView.findViewById(R.id.product_weight)
+        val weight: TextView = itemView.findViewById(R.id.product_right_information)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeightViewHolder {
@@ -24,7 +24,10 @@ class ProductAdapter(private val context: Context, val weights: ArrayList<Produc
     }
 
     override fun onBindViewHolder(holder: WeightViewHolder, position: Int) {
-        holder.barcode.text = weights[position].barcodeNumber
+        holder.barcode.text = context.getString(
+            R.string.barcode_display,
+            weights[position].barcodeNumber
+        )
         holder.description.text = weights[position].description
         holder.weight.text = context.getString(
             R.string.weight_total,

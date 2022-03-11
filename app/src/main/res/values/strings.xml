@@ -14,5 +14,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="finalizar">finalizar y obtener total</string>
     <string name="weight_total">%1$s kg</string>
+    <string name="barcode_display">Código %1$s</string>
+    <string name="grouped_amount_total">%1$s unidades</string>
+    <string name="grouped_amount_total_singular">1 unidad</string>
     <string name="_0_kg">0 kg</string>
 </resources>
