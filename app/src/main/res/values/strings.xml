@@ -1,21 +1,20 @@
 <resources>
     <string name="app_name">Lector AssA</string>
-    <string name="title_activity_landing">LandingActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="comenzar">comenzar</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="finalizar">finalizar y obtener total</string>
     <string name="weight_total">%1$s kg</string>
     <string name="barcode_display">Código %1$s</string>
     <string name="grouped_amount_total">%1$s unidades</string>
     <string name="grouped_amount_total_singular">1 unidad</string>
     <string name="_0_kg">0 kg</string>
+    <string name="texto_abajo_izquierda">texto abajo izquierda</string>
+    <string name="texto_abajo_derecha">texto abajo derecha</string>
+    <string name="texto_titulo">texto titulo</string>
+    <string name="delete">delete</string>
+    <string name="vaciar_lista">Vaciar lista</string>
+    <string name="app_logo">app logo</string>
+    <string name="cancel">Cancelar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="delete_all_scans_title">Vaciar lista</string>
+    <string name="delete_all_scans_message">¿Desea vaciar la lista de productos?</string>
 </resources>

@@ -33,14 +33,26 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/product_list"
-            android:layout_width="389dp"
+            android:layout_width="391dp"
             android:layout_height="0dp"
             android:layout_gravity="center|bottom"
-            android:paddingTop="10dp"
             android:layout_marginBottom="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_delete_all_scans"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/button_delete_all_scans"
+            android:layout_width="401dp"
+            android:layout_height="52dp"
+            android:backgroundTint="#2C4575"
+            android:text="@string/vaciar_lista"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/product_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scanner_view" />
 
@@ -55,6 +67,7 @@
 
 
         </FrameLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include layout="@layout/grouped_scans_bottom_sheet" />

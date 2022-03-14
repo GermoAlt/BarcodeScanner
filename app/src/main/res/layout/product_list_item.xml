@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.chauthai.swipereveallayout.SwipeRevealLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe_layout"
+    android:layout_width="match_parent"
+    android:layout_height="85dp"
+    app:dragEdge="right"
+    app:mode="normal">
+
+    <!-- Your secondary layout here -->
+    <FrameLayout
+        android:id="@+id/delete_layout"
+        android:layout_width="75dp"
+        android:layout_height="match_parent"
+        android:background="#F45656"
+        android:paddingHorizontal="10dp">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="#00FFFFFF"
+            android:contentDescription="@string/delete"
+            android:scaleType="fitCenter"
+            app:srcCompat="@android:drawable/ic_menu_delete" />
+    </FrameLayout>
+
+    <!--  main layout  -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:text="@string/texto_titulo"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/product_left_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:text="@string/texto_abajo_izquierda"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/product_right_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginStart="46dp"
+            android:text="@string/texto_abajo_derecha"
+            android:textSize="16sp" />
+
+    </FrameLayout>
+
+
+</com.chauthai.swipereveallayout.SwipeRevealLayout>

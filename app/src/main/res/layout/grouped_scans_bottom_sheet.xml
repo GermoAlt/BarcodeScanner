@@ -36,7 +36,7 @@
                 android:gravity="center"
                 android:text="Cantidad"
                 android:textAllCaps="false"
-                android:textColor="#444A55"
+                android:textColor="#2C4575"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/text_total_element"

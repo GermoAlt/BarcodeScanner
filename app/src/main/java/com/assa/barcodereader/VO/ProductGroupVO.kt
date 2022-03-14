@@ -11,7 +11,9 @@ class ProductGroupVO(
 ) {
     constructor(product: Product) : this(product.description, arrayListOf(product))
 
-    fun hasProduct(product: Product): Boolean {
-        return products.find { p -> p.barcodeNumber == product.barcodeNumber } != null
+    fun deleteProduct(p: Product): Int {
+        val productToDelete = products.find { product: Product ->  product.barcodeNumber == p.barcodeNumber}
+        products.remove(productToDelete)
+        return products.size
     }
 }
